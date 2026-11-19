@@ -20,7 +20,9 @@
 
         <div class="landing-projects__grid">
           <NuxtLink to="/prediction" class="landing-project-card">
-            <div class="landing-project-card__preview">Prediction UI Placeholder</div>
+            <div class="landing-project-card__preview">
+              <img src="/projects/prediction.png" alt="" width="1440" height="900" loading="lazy" decoding="async" />
+            </div>
             <div class="landing-project-card__content">
               <span>Sports / Prediction</span>
               <h3>Prediction Interface</h3>
@@ -28,13 +30,16 @@
             </div>
           </NuxtLink>
 
-          <article class="landing-project-card landing-project-card--placeholder">
-            <div class="landing-project-card__preview">Ecommerce Placeholder</div>
-            <div class="landing-project-card__content">
-              <span>Ecommerce</span>
-              <h3>Coming Soon</h3>
+          <NuxtLink to="/point-cost" class="landing-project-card">
+            <div class="landing-project-card__preview">
+              <img src="/projects/point-cost.png" alt="" width="1440" height="900" loading="lazy" decoding="async" />
             </div>
-          </article>
+            <div class="landing-project-card__content">
+              <span>Dashboard / Analytics</span>
+              <h3>點數支出報表</h3>
+              <p>以互動圖表呈現點數支出趨勢、類別占比與每日明細。</p>
+            </div>
+          </NuxtLink>
 
           <article class="landing-project-card landing-project-card--placeholder">
             <div class="landing-project-card__preview">Dashboard Placeholder</div>
@@ -153,14 +158,26 @@
 }
 
 .landing-project-card__preview {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: clamp(120px, 16vh, 156px);
+  overflow: hidden;
   padding: 20px;
   background: #edf3fc;
   color: #60718e;
   text-align: center;
+}
+
+.landing-project-card__preview img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 22%;
 }
 
 .landing-project-card__content {
@@ -213,19 +230,19 @@
 
 @media (min-width: 1200px) and (max-height: 960px) {
   .landing-projects {
-    padding-block: 20px;
+    padding-block: 16px;
   }
 
   .landing-projects__header {
-    margin-bottom: 8px;
+    margin-bottom: 6px;
   }
 
   .landing-project-card__preview {
-    min-height: 112px;
+    min-height: 104px;
   }
 
   .landing-project-card__content {
-    padding: 12px;
+    padding: 10px 12px;
   }
 }
 
@@ -235,11 +252,25 @@
   }
 
   .landing-projects {
-    padding-block: 12px;
+    padding-block: 8px;
   }
 
   .landing-project-card__preview {
-    min-height: 80px;
+    min-height: 68px;
+  }
+}
+
+@media (min-width: 1200px) and (max-height: 720px) {
+  .landing-projects {
+    padding-block: 6px;
+  }
+
+  .landing-project-card__preview {
+    min-height: 56px;
+  }
+
+  .landing-project-card__content {
+    padding-block: 8px;
   }
 }
 
